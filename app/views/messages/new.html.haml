@@ -1,2 +1,7 @@
-%h1 Messages#new
-%p Find me in app/views/messages/new.html.haml
+Let's leave a message for
+= @friend.name
+= image_tag @friend.image
+= form_for @message do |f|
+  = f.text_area :body
+  = f.hidden_field :recipient_id, value: @friend.id
+  = f.submit

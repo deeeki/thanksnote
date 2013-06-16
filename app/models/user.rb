@@ -6,6 +6,7 @@ class User
   field :email, type: String
   field :token, type: String
   has_and_belongs_to_many :friends, class_name: 'User'
+  has_many :messages
 
   class << self
     def from_omniauth auth

@@ -1,2 +1,9 @@
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
+= link_to 'Say thanks for your precious friends', :new_message
+
+- unless @messages.empty?
+  %h3 Past messages
+- @messages.each do |m|
+  To:
+  = image_tag m.recipient.image
+  = m.body
+  = m.created_at.to_date
