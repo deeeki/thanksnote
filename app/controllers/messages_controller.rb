@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   end
 
   def new
+    current_user.register_friends if current_user.friend_ids.empty?
     @friend = current_user.friends.sample
     @message = current_user.messages.build
   end
